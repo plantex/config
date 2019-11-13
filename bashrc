@@ -155,7 +155,7 @@ rem() {
     sed -i "s/__SLOT__/$_SLOT/g" /tmp/vnc.remmina
     remmina -c /tmp/vnc.remmina
     sleep 0.5s
-    # rm -v /tmp/vnc.remmina
+    rm /tmp/vnc.remmina
 }
 
 githelp() {
