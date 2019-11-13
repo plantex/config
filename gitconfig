@@ -1,0 +1,17 @@
+[user]
+    name = Mathieu Plantey
+    email = mathieu.plantey@blade-group.com
+[core]
+    editor = vim
+
+[alias]
+    lg = log --decorate --graph --oneline
+    lga = log --all --decorate --graph --oneline
+    cm = commit -m
+    st = status
+    ca = commit --amend
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
