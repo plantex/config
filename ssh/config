@@ -22,32 +22,39 @@ Host gtw-da4
                               ##################
                               # ---- GAPS ---- #
                               ##################
-Host gap1-pa1
+Host gap1.pa1
     HostName 172.22.64.8
     User blade
-Host gap-ext2-pa1
+Host gap-ext2.pa1
     HostName 172.22.64.122
     User blade
-Host gap-ext1-pa1
+Host gap-ext1.pa1
     HostName 172.22.64.121
     User blade
-Host gap1-sv2
+Host gap1.sv2
     HostName 172.23.64.22
     User blade
-Host gap1-ams1
+Host gap1.ams1
     HostName 172.24.64.92
     User blade
-Host gap1-ny1
+Host gap1.ny1
     HostName 172.25.64.92
     User blade
-Host gap1-tx1
+Host gap1.tx1
     HostName 172.26.64.93
     User blade
-Host gap1-ch1
+Host gap1.ch1
     HostName 172.27.64.92
     User blade
-Host gap1-event
+Host gap1.event
     HostName 172.22.64.184
+    User blade
+Host gap1.testing
+#    HostName 85.190.65.5
+    HostName 172.22.64.89
+    User blade
+Host gap1.ovh
+    HostName 172.29.64.90
     User blade
                             ############
                             # DR HOUSE #
@@ -76,7 +83,7 @@ Host 172.26.* sh-172-26-*
     ProxyJump gtw1.tx1
 Host 172.27.* sh-172-27-*
     ProxyJump gtw1.ch1
-Host 172.29.* sh-172-29-*
+Host sh-172-29-*
     Hostname %h.ovh-alpha1.blade-group.net
 Host *?da4 *?da1 *?pa1 *?sv2 *?ams1 *?sv2 *?ny1 *?tx1 *?ch1
     User root
