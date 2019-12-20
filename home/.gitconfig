@@ -5,7 +5,7 @@
     editor = vim
 
 [alias]
-    lg = log --decorate --graph --oneline
+    lg = log --decorate --oneline
     lga = log --all --decorate --graph --oneline
     cm = commit -m
     st = status
