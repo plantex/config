@@ -34,8 +34,13 @@ set completeopt=menu,longest
 
 set visualbell
 
-" Highlight over lenght
 colorscheme slate
 set background=dark
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
-match OverLength /\%81v.*/
+
+" Highlight over lenght
+" highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
+" match OverLength /\%81v.*/
+
+" Highlight extra white space
+highlight ExtraWhiteSpaces ctermbg=darkred ctermfg=white guibg=#592929
+match ExtraWhiteSpaces /\s\+\%#\@<!$/
