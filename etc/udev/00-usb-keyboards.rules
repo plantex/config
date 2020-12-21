@@ -1,0 +1,1 @@
+ACTION=="add", ATTRS{idVendor}=="1038", ATTRS{idProduct}=="1616", RUN+="/usr/bin/kbd_udev", OWNER="plantex"

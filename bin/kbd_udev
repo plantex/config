@@ -1,0 +1,8 @@
+#!/bin/bash
+
+DISPLAY=":0.0"
+HOME=/home/plantex/
+XAUTHORITY=$HOME/.Xauthority
+export DISPLAY XAUTHORITY HOME
+
+setxkbmap -option caps:escape
