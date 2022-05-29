@@ -168,13 +168,15 @@ getscreen() {
     fi
     SERVER=$1
     SLOT=$2
-    IP=`echo $SERVER | sed 's/-/./g' | cut -d'.' -f 2-`
+    # IP=`echo ${SERVER} | sed 's/-/./g' | cut -d'.' -f 2-`
 
-    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -AX -l blade $IP 'echo -en "screendump /tmp/screen-1\r" > `cat /tmp/vm.'${SLOT}'.pty` ; read < `cat /tmp/vm.'${SLOT}'.pty`'
-    scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no blade@${IP}:/tmp/screen-1 /tmp/screen-1
-    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -AX -l blade $IP 'echo -en "screendump /tmp/screen-2\r" > `cat /tmp/vm.'${SLOT}'.pty` ; read < `cat /tmp/vm.'${SLOT}'.pty`'
-    scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no blade@${IP}:/tmp/screen-2 /tmp/screen-2
-    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -AX -l blade $IP 'rm /tmp/screen-1 /tmp/screen-2'
+    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -AX -l blade ${SERVER} 'echo -en "screendump /tmp/screen-1\r" > `cat /tmp/vm.'${SLOT}'.pty` ; read < `cat /tmp/vm.'${SLOT}'.pty`'
+    sleep 0.5s
+    scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no blade@${SERVER}:/tmp/screen-1 /tmp/screen-1
+    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -AX -l blade ${SERVER} 'echo -en "screendump /tmp/screen-2\r" > `cat /tmp/vm.'${SLOT}'.pty` ; read < `cat /tmp/vm.'${SLOT}'.pty`'
+    sleep 0.5s
+    scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no blade@${SERVER}:/tmp/screen-2 /tmp/screen-2
+    ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -AX -l blade ${SERVER} 'rm /tmp/screen-1 /tmp/screen-2'
     feh /tmp/screen-1 /tmp/screen-2
     rm /tmp/screen-1 /tmp/screen-2
 }
