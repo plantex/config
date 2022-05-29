@@ -1,172 +1,32 @@
-LogLevel ERROR
-HashKnownHosts no
-
-Host *
-    CanonicalizeHostname yes
-    CanonicalizeFallbackLocal yes
-                               #################
-                               # ---- GIT ---- #
-                               #################
 Host git.blade-group.fr
     User git
     Port 2222
 
-                             #########################
-                             # ---- BLADE DOMAIN ----#
-                             #########################
-Host *.blade-group.net
-    User blade
-                             ######################
-                             # ---- GATEWAYS ---- #
-                             ######################
-Host gtw1.kr1
-    HostName 117.52.31.209
-    User blade
-Host gtw2.kr1
-    HostName 117.52.31.211
-    User blade
-Host gtw?.pa1 gtw?.ams1 gtw?.sv2 gtw?.ny1 gtw?.tx1 gtw?.ch1 gtw?.dfr1
-    HostName    %h.blade.sh
-    User        blade
-    StrictHostKeyChecking no
-    UserKnownHostsFile /dev/null
-Host gtw-da4
-    HostName 185.161.169.249
-    Port 222
-    User blade
-                              ##################
-                              # ---- GAPS ---- #
-                              ##################
 Host gap1.pa1
     HostName 172.22.64.8
-    User blade
 Host gap-ext2.pa1
     HostName 172.22.64.122
-    User blade
 Host gap-ext1.pa1
     HostName 172.22.64.121
-    User blade
 Host gap1.sv2
     HostName 172.23.64.22
-    User blade
 Host gap1.ams1
     HostName 172.24.64.92
-    User blade
 Host gap1.ny1
     HostName 172.25.64.92
-    User blade
 Host gap1.tx1
     HostName 172.26.64.92
-    User blade
 Host gap2.tx1
     HostName 172.26.64.93
-    User blade
 Host gap1.ch1
     HostName 172.27.64.92
-    User blade
 Host gap1.event
     HostName 172.22.64.184
-    User blade
 Host gap1.testing
-#    HostName 85.190.65.5
     HostName 172.22.64.89
-    User blade
 Host gap1.ovh
     HostName 172.29.64.90
-    User blade
-                            ############
-                            # DR HOUSE #
-                            ############
 Host drhouse-pa1
     HostName 172.22.64.15
-    User blade
-                            #####################
-                            # ---- ALIASES ---- #
-                            #####################
-Host log2.sv2
-    User root
-    HostName log1.sv2.blade-group.net
-    StrictHostKeyChecking no
-    UserKnownHostsFile /dev/null
-Host 172.* sh-172-*
-    User blade
-    StrictHostKeyChecking no
-    UserKnownHostsFile /dev/null
-Host 172.21.* sh-172-21-*
-    ProxyJump gtw-da4
-Host 172.22.* sh-172-22-*
-    ProxyJump gtw1.pa1
-Host 172.23.* sh-172-23-*
-    ProxyJump gtw1.sv2
-Host 172.24.* sh-172-24-*
-    ProxyJump gtw1.ams1
-Host 172.25.* sh-172-25-*
-    ProxyJump gtw1.ny1
-Host 172.26.* sh-172-26-*
-    ProxyJump gtw1.tx1
-Host 172.27.* sh-172-27-*
-    ProxyJump gtw1.ch1
-Host 172.28.* sh-172-28-*
-    ProxyJump gtw1.dfr1
-# Host sh-172-29-*
-#     Hostname %h.ovh-alpha1.blade-group.net
-Host *?da4 *?da1 *?pa1 *?sv2 *?ams1 *?sv2 *?ny1 *?tx1 *?ch1 *?.dfr1
-    User root
-    HostName %h.blade-group.net
-    StrictHostKeyChecking no
-    UserKnownHostsFile /dev/null
-# Host *?ovh
-#     Hostname %h-alpha1.blade-group.net
-#     StrictHostKeyChecking no
-#     UserKnownHostsFile /dev/null
-Host *.pa1.blade-group.net
-    ProxyJump gtw1.pa1
-Host *.da4.blade-group.net
-    ProxyJump gtw-da4
-Host *.da1.blade-group.net
-    ProxyJump gtw-da4
-Host *.sv2.blade-group.net
-    ProxyJump gtw1.sv2
-Host *.ams1.blade-group.net
-    ProxyJump gtw1.ams1
-Host *.ny1.blade-group.net
-    ProxyJump gtw1.ny1
-Host *.tx1.blade-group.net
-    ProxyJump gtw1.tx1
-Host *.ch1.blade-group.net
-    ProxyJump gtw1.ch1
-                            ####################
-                            # ---- OTHERS ---- #
-                            ####################
-Host zotac
-    HostName paris.blade-group.fr
-    Port 1023
-    User blade
-    ForwardAgent yes
-    ForwardX11 yes
-Host guillaume-webserver
-    HostName 37.59.29.118
-    Port 443
-    User desktop
-    ForwardAgent yes
-    ForwardX11 yes
-Host antoine-trash
-    User blade
-    HostName 192.168.148.54
-Host singapour
-    HostName 116.12.176.34
-    User blade
-Host shadow-event-kr01
-    HostName 117.52.31.210
-    User blade
-Host shadow-event-kr02
-    HostName 117.52.31.212
-    User blade
-Host franken-01
-    HostName 192.168.137.213
-    ForwardAgent yes
 Host storage
     HostName storage-tools1.gcp.blade-group.net
-#   HostName 10.0.0.76
-    User root
-    ForwardAgent yes
