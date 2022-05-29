@@ -137,10 +137,4 @@ export MANPAGER="/bin/sh -c \"col -b -x | vim --not-a-term -R \
 
 
 # My environments variables
-ENVDIR="$HOME/.config/environment.d"
-ENVFILES=$(run-parts --list ENVDIR)
-if [ -n "$ENVFILES" ]; then
-  for ENVFILE in $ENVFILES; do
-    . $ENVFILE
-  done
-fi
+. $HOME/.config/environment.d/*
