@@ -1,0 +1,2 @@
+INPUTRC=$HOME/.config/inputrc
+EDITOR=/usr/bin/vim
