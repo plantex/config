@@ -38,9 +38,14 @@ colorscheme slate
 set background=dark
 
 " Highlight over lenght
-" highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
-" match OverLength /\%81v.*/
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
+match OverLength /\%81v.*/
 
 " Highlight extra white space
 highlight ExtraWhiteSpaces ctermbg=darkred ctermfg=white guibg=#592929
 match ExtraWhiteSpaces /\s\+\%#\@<!$/
+
+" Use Pylint3 instead of pylint (for debian)
+let g:ale_python_pylint_executable = 'pylint3'
+" Disable ale
+let g:ale_enabled = 0
