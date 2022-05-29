@@ -113,8 +113,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-setxkbmap -option caps:escape
-
 # My functions
 
 vimo() {
