@@ -49,3 +49,6 @@ match ExtraWhiteSpaces /\s\+\%#\@<!$/
 let g:ale_python_pylint_executable = 'pylint3'
 " Disable ale
 let g:ale_enabled = 0
+
+" Clearing PAGER var to use vim as MANPAGER
+let PAGER=''
