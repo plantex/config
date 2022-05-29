@@ -9,7 +9,7 @@
     lga = log --all --decorate --graph --oneline
     cm = commit -m
     st = status
-    ca = commit --amend
+    ca = commit --amend --no-edit
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
