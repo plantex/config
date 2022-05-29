@@ -1,0 +1,14 @@
+#ifdef COLOR
+*customization: -color
+#endif
+
+XTerm*renderFont: true
+XTerm*faceName: Liberation Mono
+XTerm*faceSize: 12
+Xterm*allowTitleOps: false
+xterm*background: black
+
+UXTerm*faceName: Noto Sans Mono
+UXTerm*faceSize: 12
+uxterm*allowTitleOps: false
+uxterm*background: black
