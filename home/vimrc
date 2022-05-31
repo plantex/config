@@ -15,13 +15,9 @@ set softtabstop=4
 set shiftwidth=4
 set autoindent
 
-if version >= 703
-    " set colorcolumn=+1
-    set undofile
-    set undodir=~/.vimtmp/undo
-    silent !mkdir -p ~/.vimtmp/undo
-endif
-"set textwidth=80
+set undofile
+set undodir=~/.vimtmp/undo
+silent !mkdir -p ~/.vimtmp/undo
 
 set scrolloff=5
 
@@ -37,18 +33,7 @@ set visualbell
 colorscheme slate
 set background=dark
 
-" Highlight over lenght
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
-match OverLength /\%81v.*/
-
-" Highlight extra white space
-highlight ExtraWhiteSpaces ctermbg=darkred ctermfg=white guibg=#592929
-match ExtraWhiteSpaces /\s\+\%#\@<!$/
-
-" Use Pylint3 instead of pylint (for debian)
-let g:ale_python_pylint_executable = 'pylint3'
-" Disable ale
-let g:ale_enabled = 0
+set list listchars=tab:»·,trail:·
 
 " Clearing PAGER var to use vim as MANPAGER
 let PAGER=''
