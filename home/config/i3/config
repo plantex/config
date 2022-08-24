@@ -179,6 +179,9 @@ bar {
         tray_output primary
 }
 
+# Set default container layout
+workspace_layout tabbed
+
 # Set default Display layout
 # Home desktop 3-screens layout
 exec xrandr --output DP-2 --primary --pos 1920x0 --output DP-0 --pos 3840x0 --output HDMI-0 --pos 0x500
