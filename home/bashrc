@@ -101,7 +101,7 @@ getscreen() {
     FNIMES=$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 32 | head -n 1)
     SERVER="$1"
     SLOT=$2
-    FRAMES=$3
+    FRAMES=${3:-5}
 
     for (( F = 0; F < $FRAMES; F++ )); do
         ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -AX -l blade ${SERVER} 'echo -en "screendump /tmp/screen-"'${FNIMES}-${F}'"\r" > `cat /tmp/vm.'${SLOT}'.pty` && read < `cat /tmp/vm.'${SLOT}'.pty`'
