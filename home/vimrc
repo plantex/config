@@ -30,8 +30,9 @@ set completeopt=menu,longest
 
 set visualbell
 
+autocmd ColorScheme * highlight Normal ctermbg=None
+autocmd ColorScheme * highlight NonText ctermbg=None
 colorscheme slate
-set background=dark
 
 set list listchars=tab:»·,trail:·
 
