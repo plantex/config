@@ -1,3 +1,13 @@
+AddKeysToAgent yes
+
+Host bastion
+    HostName 34.140.43.133
+    User mathieu.plantey
+
+Host mylab
+    HostName sh-172-22-68-122.pa1.blade-group.net
+    User blade
+
 Host git.blade-group.fr
     User git
     Port 2222
