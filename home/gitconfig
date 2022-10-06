@@ -3,6 +3,7 @@
     email = mathieu.plantey@shadow.tech
 [core]
     editor = vim
+    excludesfile = ~/.gitignore
 
 [alias]
     lg = log --decorate --oneline
