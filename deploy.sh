@@ -36,4 +36,4 @@ deploy() {
     done
 }
 
-symlink .
+deploy
