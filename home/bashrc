@@ -130,11 +130,10 @@ multi-ssh() {
 
 
 # use vim as man pager
-export MANPAGER="vim --not-a-term \
+export MANPAGER="/bin/sh -c \"col -b -x | vim --not-a-term -R \
     -c 'set ft=man nomod nolist nonu nornu'\
-    +AnsiEsc \
     -c 'map q :q<CR>' \
-    -"
+    -\""
 
 
 # My environments variables
