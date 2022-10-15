@@ -23,6 +23,7 @@ set scrolloff=5
 
 set cursorline
 match Error "\s\+$"
+match Error /\%81v.\+/
 
 set mouse=a
 
