@@ -1,0 +1,39 @@
+using UnityEngine;
+
+    #ROOTNAMESPACEBEGIN#
+public class #SCRIPTNAME# : MonoBehaviour {
+
+    #region Public fields
+
+    #region Events
+    #endregion
+
+    #region Variables
+    #endregion
+
+    #region methods
+    #endregion
+
+    #endregion
+
+    #region Unity Methods
+    #endregion
+
+    #region Private fields
+
+    #region Variables
+
+    //[Header("Internal references")] // Parent or Child objects of a prefab
+    //[Header("Scenes references")]
+    //[Header("Project references")] // Scriptable objects, prefab, etc...
+    //[Header("Variables")]
+
+    #endregion
+
+    #region methods
+    #endregion
+
+    #endregion
+
+}
+#ROOTNAMESPACEEND#
