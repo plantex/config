@@ -3,25 +3,24 @@ using UnityEngine;
     #ROOTNAMESPACEBEGIN#
 public class #SCRIPTNAME# : MonoBehaviour {
 
-    #region Public fields
+    #region Static
+
+
+    #endregion
+
+    #region Variables
 
     #region Events
-    #endregion
 
-    #region Variables
-    #endregion
-
-    #region methods
-    #endregion
 
     #endregion
 
-    #region Unity Methods
+    #region Public
+
+
     #endregion
 
-    #region Private fields
-
-    #region Variables
+    #region Private
 
     //[Header("Internal references")] // Parent or Child objects of a prefab
     //[Header("Scenes references")]
@@ -30,7 +29,27 @@ public class #SCRIPTNAME# : MonoBehaviour {
 
     #endregion
 
-    #region methods
+    #endregion
+
+    #region Methods
+
+    #region Public
+
+
+    #endregion
+
+    #region Private
+
+    #region Unity
+
+
+    #endregion
+
+    #endregion
+
+    #region Abstract and Override
+
+
     #endregion
 
     #endregion
