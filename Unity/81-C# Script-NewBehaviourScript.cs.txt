@@ -1,0 +1,58 @@
+using UnityEngine;
+
+    #ROOTNAMESPACEBEGIN#
+public class #SCRIPTNAME# : MonoBehaviour {
+
+    #region Static
+
+
+    #endregion
+
+    #region Variables
+
+    #region Events
+
+
+    #endregion
+
+    #region Public
+
+
+    #endregion
+
+    #region Private
+
+    //[Header("Internal references")] // Parent or Child objects of a prefab
+    //[Header("Scenes references")]
+    //[Header("Project references")] // Scriptable objects, prefab, etc...
+    //[Header("Variables")]
+
+    #endregion
+
+    #endregion
+
+    #region Methods
+
+    #region Public
+
+
+    #endregion
+
+    #region Private
+
+    #region Unity
+
+
+    #endregion
+
+    #endregion
+
+    #region Abstract and Override
+
+
+    #endregion
+
+    #endregion
+
+}
+#ROOTNAMESPACEEND#
