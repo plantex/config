@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}"/readline/inputrc
+
 
 # If not running interactively, don't do anything
 case $- in
