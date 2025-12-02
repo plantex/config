@@ -8,11 +8,6 @@ case $- in
     *i*) ;;
       *) return;;
 esac
-
-# History
-# XDG base directory spec locate history file in $HOME/.local/state/bash
-mkdir -p "$XDG_STATE_HOME"/bash
-export HISTFILE="$XDG_STATE_HOME"/bash/history
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
