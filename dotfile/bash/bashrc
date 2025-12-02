@@ -143,4 +143,11 @@ export MANPAGER="vim --not-a-term \
 
 
 # My environments variables
-. $HOME/.config/environment.d/*
+if [ -d $XDG_CONFIG_HOME/environment.d ]; then
+  for i in $XDG_CONFIG_HOME/environment.d/*; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
