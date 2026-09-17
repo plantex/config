@@ -138,4 +138,10 @@ export MANPAGER="vim --not-a-term \
 
 
 # My environments variables
-. $HOME/.config/environment.d/*
+for env_file in "$HOME"/.config/environment.d/*
+do
+    if [ -f "$env_file" ]
+    then
+        . "$env_file"
+    fi
+done
