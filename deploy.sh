@@ -32,8 +32,13 @@ symlink() {
 deploy() {
     ls home | while read file
     do
-        cp -Tva home/$file ~/.$file
+        cp -TvR home/$file ~/.$file
     done
+
+    # ssh ignores a config, a key or an authorized_keys the group can write,
+    # and the 002 umask of a fresh clone makes every copied file group-writable
+    chmod 700 ~/.ssh
+    find ~/.ssh -maxdepth 1 -type f -exec chmod 600 {} +
 }
 
 deploy
