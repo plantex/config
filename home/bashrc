@@ -132,7 +132,7 @@ multi-ssh() {
 # use vim as man pager
 export MANPAGER="vim --not-a-term \
     -c 'set ft=man nomod nolist nonu nornu'\
-    +AnsiEsc \
+    -c 'silent! AnsiEsc' \
     -c 'map q :q<CR>' \
     -"
 
