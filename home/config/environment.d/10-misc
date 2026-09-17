@@ -1,2 +1,2 @@
-INPUTRC=$HOME/.config/inputrc
-EDITOR=/usr/bin/vim
+export INPUTRC=$HOME/.config/inputrc
+export EDITOR=/usr/bin/vim
