@@ -30,10 +30,20 @@ symlink() {
 }
 
 deploy() {
+    # the plain copy below would overwrite authorized_keys: keep the keys the
+    # target already grants, or a deploy locks out every other machine
+    GRANTED=/tmp/tmp.zo2xJ6lACI
+    cat ~/.ssh/authorized_keys 2>/dev/null > $GRANTED
+
     ls home | while read file
     do
         cp -TvR home/$file ~/.$file
     done
+
+    cat $GRANTED > ~/.ssh/authorized_keys
+    grep -qxFf home/ssh/authorized_keys $GRANTED \
+        || cat home/ssh/authorized_keys >> ~/.ssh/authorized_keys
+    rm -f $GRANTED
 
     # ssh ignores a config, a key or an authorized_keys the group can write,
     # and the 002 umask of a fresh clone makes every copied file group-writable
