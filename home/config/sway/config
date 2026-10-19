@@ -18,12 +18,15 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu xargs swaymsg exec -- bemenu-run --binding=vim --single-instance
+
+# lock screen command
+set $lock swaylock -f -e -i /home/plantex/Pictures/wallpaper/lockscreen.png
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/default.png fill
+output * bg /home/plantex/Pictures/wallpaper/black_blue_abstract_stripes_513_1920x1080.jpg fill
 #
 # Example configuration:
 #
@@ -43,6 +46,11 @@ output * bg /usr/share/backgrounds/default.png fill
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+
+exec swayidle -w \
+         timeout 300 $lock \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep $lock
 
 ### Input configuration
 #
@@ -71,6 +79,9 @@ output * bg /usr/share/backgrounds/default.png fill
     # Start your launcher
     bindsym $mod+d exec $menu
 
+    # lock screen
+    bindsym $mod+Shift+z exec $lock
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -83,6 +94,11 @@ output * bg /usr/share/backgrounds/default.png fill
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # screenshot capture screen
+    bindsym Print exec grim -t jpeg ~/Pictures/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
+    bindsym $mod+Print exec grim -t jpeg -g "$(slurp)" ~/Pictures/screenshots/$(date +%Y-%m-%d_%H-%m-%s).jpg
+
 #
 # Moving around:
 #
@@ -205,18 +221,22 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    swaybar_command waybar
+    workspace_buttons yes
 }
+#bar {
+#    position top
+#
+#    # When the status_command prints a new line to stdout, swaybar updates.
+#    # The default just shows the current date and time.
+#    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*
