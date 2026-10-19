@@ -112,6 +112,7 @@ exec swayidle -w \
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
+    bindsym $mod+u [urgent=oldest] focus
 
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
