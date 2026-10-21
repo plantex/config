@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Open an interactive Claude session in a new sway window.
+set -euo pipefail
+
+die() { echo "claude-open: $*" >&2; exit 1; }
+
+[ $# -ge 2 ] || { echo "usage: claude-open <directory> <prompt-file> [session-name]" >&2; exit 2; }
+dir=$(realpath "$1")
+prompt=$(realpath "$2")
+name=${3:-}
+[ -d "$dir" ] || die "$dir is not a directory"
+[ -r "$prompt" ] || die "$prompt is not readable"
+
+# swaymsg exec splits on , and ; and the arguments are single-quoted below:
+# only these short values cross it, the prompt itself stays in its file.
+for value in "$dir" "$prompt" "$name"; do
+  case $value in *[,\;\']*) die "no , ; or ' allowed in '$value'" ;; esac
+done
+
+run=$(dirname "$(realpath "$0")")/claude-open-run
+swaymsg exec "alacritty --working-directory '$dir' -e '$run' '$prompt' '$name'" >/dev/null
