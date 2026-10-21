@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Started by claude-open inside the new terminal. sway's PATH lacks
+# ~/.local/bin, hence the absolute path to claude.
+set -euo pipefail
+
+args=()
+[ -n "${2:-}" ] && args+=(--name "$2")
+exec "$HOME/.local/bin/claude" "${args[@]}" "$(<"$1")"
